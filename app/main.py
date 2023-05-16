@@ -11,5 +11,5 @@ def player(id: int):
     return {'player_id':id,'name':'Anish Giri'}
 
 @app.post('/player/{id}/{name}')
-def player(id: int,name:str):
+def playerinfo(id: int,name:str):
     return {'player_id':id,'name':name}

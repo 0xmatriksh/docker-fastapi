@@ -1,5 +1,5 @@
 # this is to pull the image of python as base image using which we create our own image
-FROM python:3.8-slim-buster 
+FROM python:3.8
 
 #then we create a root folder /app on which we put all the files and folder of the project
 WORKDIR /code
@@ -8,9 +8,9 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 
 #this install all the essentials in the image
-RUN pip3 install -r requirements.txt
+RUN pip install -r /code/requirements.txt
 
 #copy rest to the /app folder of the image
 COPY ./app /code/app
 
-# CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD [ "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
